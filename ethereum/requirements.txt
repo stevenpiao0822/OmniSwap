@@ -1,0 +1,9 @@
+aptos_sdk
+python-dotenv
+pathlib
+pyyaml
+toml
+requests
+eth-brownie
+aptos-brownie
+ccxt
