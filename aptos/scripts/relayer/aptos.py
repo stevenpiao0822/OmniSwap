@@ -154,28 +154,28 @@ def process_vaa(
         price=0
 ) -> bool:
     try:
-        # Use bsc-test to decode, too slow may need to change bsc-mainnet
-        vaa_str = vaa_str if "0x" in vaa_str else "0x" + vaa_str
-        vaa_data, transfer_data, wormhole_data = parse_vaa_to_wormhole_payload(
-            package, network.show_active(),
-            vaa_str)
-        dst_max_gas = wormhole_data[1]
-        dst_max_gas_price = wormhole_data[0] / 1e10
-        dst_max_gas_price = min(package.estimate_gas_price(), dst_max_gas_price)
-        if "main" in package.network and dst_max_gas_price == 0:
-            local_logger.warning(f'Parse signed vaa for emitterChainId:{emitterChainId}, '
-                                 f'sequence:{sequence} dst_max_gas_price is zero')
-            return False
-    except Exception as e:
-        local_logger.error(f'Parse signed vaa for emitterChainId:{emitterChainId}, '
-                           f'sequence:{sequence} error: {e}')
+      # Use bsc-test to decode, too slow may need to change bsc-mainnet
+      vaa_str = vaa_str if "0x" in vaa_str else "0x" + vaa_str
+      vaa_data, transfer_data, wormhole_data = parse_vaa_to_wormhole_payload(
+        package, network.show_active(),
+        vaa_str)
+      dst_max_gas = wormhole_data[1]
+      dst_max_gas_price = wormhole_data[0] / 1e10
+      dst_max_gas_price = min(package.estimate_gas_price(), dst_max_gas_price)
+      if "main" in package.network and dst_max_gas_price == 0:
+        local_logger.warning(f'Parse signed vaa for emitterChainId:{emitterChainId}, '
+                            f'sequence:{sequence} dst_max_gas_price is zero')
         return False
+    except Exception as e:
+      local_logger.error(f'Parse signed vaa for emitterChainId:{emitterChainId}, '
+                          f'sequence:{sequence} error: {e}')
+      return False
 
     if transfer_data[4] != dstSoDiamond:
-        local_logger.warning(
-            f'For emitterChainId:{emitterChainId}, sequence:{sequence} dstSoDiamond: {dstSoDiamond} '
-            f'not match: {transfer_data[4]}')
-        return False
+      local_logger.warning(
+          f'For emitterChainId:{emitterChainId}, sequence:{sequence} dstSoDiamond: {dstSoDiamond} '
+          f'not match: {transfer_data[4]}')
+      return False
 
     try:
         final_asset_id = decode_hex_to_ascii(wormhole_data[2][5])
