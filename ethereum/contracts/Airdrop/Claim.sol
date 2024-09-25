@@ -34,7 +34,6 @@ contract Claim is ReentrancyGuard, Pausable, Ownable {
         bytes32[] calldata _proof
     ) public whenNotPaused nonReentrant {
         require(block.timestamp >= start, "NotStart");
-
         require(
             isValidUser(_index, _msgSender(), _amount, _proof),
             "InvalidUser"
