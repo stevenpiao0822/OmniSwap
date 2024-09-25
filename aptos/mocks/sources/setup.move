@@ -11,17 +11,12 @@ module omniswap_mock::setup {
     use liquidswap::coin_helper;
 
     const SEED: vector<u8> = b"omniswap_mock";
-
     const MUST_DEPLOYER: u64 = 0;
-
     const NOT_INITIALIZE: u64 = 1;
-
     const HAS_INITIALIZE: u64 = 2;
 
     struct XBTC {}
-
     struct USDT {}
-
     struct USDC {}
 
     struct SignerCapability has key {
@@ -114,4 +109,4 @@ module omniswap_mock::setup {
         add_liquidity<USDT, XBTC, Uncorrelated>(account, 20000 * 1000000000, 1000000000);
         add_liquidity<USDC, USDT, Stable>(account, 10000000000, 10000000000);
     }
-}
+  }
