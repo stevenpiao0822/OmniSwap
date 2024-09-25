@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+
 pragma solidity 0.8.13;
 
 error InvalidAmount(); // 0x2c5211c6
