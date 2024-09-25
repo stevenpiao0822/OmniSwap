@@ -2,15 +2,11 @@
 
 This is an aptos python tool to quickly implement aptos calls.
 
-
-
 # Setup
 
 ~~~shell
 pip install aptos_brownie
 ~~~
-
-
 
 # Use
 
@@ -24,4 +20,3 @@ package = aptos_brownie.AptosPackage(
 
 package["so_fee_wormhole::initialize"](2)
 ~~~
-
