@@ -173,8 +173,8 @@ def process_vaa(
 
     if transfer_data[4] != dstSoDiamond:
       local_logger.warning(
-          f'For emitterChainId:{emitterChainId}, sequence:{sequence} dstSoDiamond: {dstSoDiamond} '
-          f'not match: {transfer_data[4]}')
+        f'For emitterChainId:{emitterChainId}, sequence:{sequence} dstSoDiamond: {dstSoDiamond} '
+        f'not match: {transfer_data[4]}')
       return False
 
     try:
