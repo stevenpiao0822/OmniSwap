@@ -27,7 +27,6 @@ contract Claim is ReentrancyGuard, Pausable, Ownable {
     }
 
     // Functions
-
     function claim(
         uint256 _index,
         uint256 _amount,
