@@ -116,4 +116,3 @@ contract Claim is ReentrancyGuard, Pausable, Ownable {
     fallback() external payable {
         revert("Cannot receive ether");
     }
-}
