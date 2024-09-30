@@ -23,4 +23,3 @@ contract ContractDeployerFactory {
         emit ContractDeployed(salt, addr);
     }
 }
-
