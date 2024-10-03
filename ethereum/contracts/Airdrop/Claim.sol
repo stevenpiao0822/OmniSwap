@@ -20,7 +20,6 @@ contract Claim is ReentrancyGuard, Pausable, Ownable {
 
     constructor(uint256 _start, IERC20 _token, bytes32 _merkleRoot) {
         require(_start > block.timestamp, "StartErr");
-
         start = _start;
         token = _token;
         merkleRoot = _merkleRoot;
