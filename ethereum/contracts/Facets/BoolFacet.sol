@@ -563,8 +563,6 @@ contract BoolFacet is
         }
     }
 
-    /// Private Methods ///
-
     /// @dev fetch local storage
     function getStorage() private pure returns (Storage storage s) {
         bytes32 namespace = NAMESPACE;
